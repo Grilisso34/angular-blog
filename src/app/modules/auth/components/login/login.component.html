@@ -1,0 +1,57 @@
+<div class="container">
+  <div>
+    <div class="alert alert-{{ message.type }}" *ngIf="message.text">
+      {{ message.text }}
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <h1 class="h-fix">Вход в систему</h1>
+        <div>
+          <input
+            class="text"
+            type="text"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <span *ngIf="form.get('email').invalid && form.get('email').touched">
+          <span class="fix" *ngIf="form.get('email').hasError('required')"
+            >Email не может быть пустым</span
+          >
+          <span class="fix" *ngIf="form.get('email').hasError('email')"
+            >Email не соответсвует стандарту</span
+          >
+        </span>
+      </div>
+      <div>
+        <div>
+          <input
+            class="text"
+            type="password"
+            placeholder="Пароль"
+            formControlName="password"
+          />
+        </div>
+        <span
+          *ngIf="form.get('password').invalid && form.get('password').touched"
+        >
+          <span class="fix" *ngIf="form.get('password').hasError('required')"
+            >Пароль не может быть пустым</span
+          >
+        </span>
+      </div>
+      <button class="fix button-fix" type="submit" [disabled]="form.invalid">
+        Войти
+      </button>
+    </form>
+  </div>
+  <span class="fix">
+    Нет аккаутна?
+    <a
+      class="txt-brand"
+      routerLink="/registration"
+      routerLinkActive="router-link-active"
+      >Регистрируйся</a
+    >
+  </span>
+</div>

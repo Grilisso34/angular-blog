@@ -1,0 +1,61 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <h1 class="fix">Регистрация</h1>
+      <div>
+        <input
+          class="text"
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </div>
+      <span *ngIf="form.get('email').invalid && form.get('email').touched">
+        <span class="fix" *ngIf="form.get('email').hasError('required')"
+          >Email не может быть пустым</span
+        >
+        <span class="fix" *ngIf="form.get('email').hasError('email')"
+          >Email не соответсвует стандарту</span
+        >
+        <span class="fix" *ngIf="form.get('email').hasError('asyncEmail')"
+          >Такой Email уже занят</span
+        >
+      </span>
+    </div>
+    <div>
+      <div>
+        <input
+          class="text"
+          type="text"
+          placeholder="Имя"
+          formControlName="name"
+        />
+      </div>
+      <span *ngIf="form.get('name').invalid && form.get('name').touched">
+        <span class="fix" *ngIf="form.get('name').hasError('required')"
+          >Имя не может быть пустым</span
+        >
+      </span>
+    </div>
+    <div>
+      <div>
+        <input
+          class="text"
+          type="password"
+          placeholder="Пароль"
+          formControlName="password"
+        />
+      </div>
+      <span
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+        <span class="fix" *ngIf="form.get('password').hasError('required')"
+          >Пароль не может быть пустым</span
+        >
+      </span>
+    </div>
+    <button class="fix button-fix" type="submit" [disabled]="form.invalid">
+      Зарегистрироваться
+    </button>
+  </form>
+</div>

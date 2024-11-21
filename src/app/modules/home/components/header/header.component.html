@@ -1,0 +1,24 @@
+<div class="header-container">
+  <ul class="list-position links-position font">
+    <li><a [routerLink]="['/home', 'articles']">Статьи</a></li>
+    <li>
+      <a [routerLink]="['/home', 'add']">Добавить</a>
+    </li>
+    <li>
+      <a [routerLink]="['/home', 'edit']">Редактировать</a>
+    </li>
+  </ul>
+
+  <ul class="nav-profile list-position">
+    <li class="profile dropdown user-position" appDropdown>
+      <span class="name dropdown-toggl font">
+        {{ user.name }}
+      </span>
+      <span class="dropdown-menu profile-dropdown-menu">
+        <a class="dropdown-item" (click)="onLogout()"
+          ><i class="fa fa-power-off icon"></i>Выйти</a
+        >
+      </span>
+    </li>
+  </ul>
+</div>

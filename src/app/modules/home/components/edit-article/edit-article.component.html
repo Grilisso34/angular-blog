@@ -1,0 +1,92 @@
+<div class="container">
+  <select
+    class="list"
+    [(ngModel)]="currentArticleId"
+    (change)="onArticleChange()"
+    [ngModelOptions]="{ standalone: true }"
+  >
+    <option *ngFor="let i of articles" [value]="i.id">
+      {{ i.title }}
+    </option>
+  </select>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="alert alert-{{ message.type }}" *ngIf="message.text">
+      {{ message.text }}
+    </div>
+    <div>
+      <h5 class="h-fix">Изменить статью</h5>
+    </div>
+    <div [ngClass]="{ 'has-Error': title.invalid && title.touched }">
+      <input
+        type="text"
+        class="text"
+        ngModel
+        name="title"
+        #title="ngModel"
+        placeholder="Название статьи"
+        required
+        [ngModel]="currentArticle.title"
+      />
+    </div>
+    <span class="form-help-text" *ngIf="title.invalid && title.touched">
+      <span class="fix">Обязательное поле!</span>
+    </span>
+    <div [ngClass]="{ 'has-error': date.invalid && date.touched }">
+      <input
+        type="date"
+        class="text"
+        ngModel
+        name="date"
+        #date="ngModel"
+        placeholder="Дата"
+        required
+        [ngModel]="currentArticle.date"
+      />
+    </div>
+    <span class="form-help-text" *ngIf="date.invalid && date.touched">
+      <span class="fix">Обязательное поле!</span>
+    </span>
+
+    <div [ngClass]="{ 'has-error': url.invalid && url.invalid }">
+      <input
+        type="url"
+        class="text"
+        ngModel
+        name="url"
+        #url="ngModel"
+        placeholder="Вставте ссылку на изображние"
+        required
+        [ngModel]="currentArticle.url"
+      />
+    </div>
+    <span class="form-help-text" *ngIf="url.invalid && url.touched">
+      <span class="fix">Обязательное поле!</span>
+    </span>
+
+    <div
+      [ngClass]="{
+        'has-Error': description.invalid && description.touched
+      }"
+    >
+      <textarea
+        class="description"
+        ngModel
+        name="description"
+        #description="ngModel"
+        placeholder="Содержание статьи"
+        required
+        [ngModel]="currentArticle.description"
+      >
+      </textarea>
+    </div>
+    <span
+      class="form-help-text"
+      *ngIf="description.invalid && description.touched"
+    >
+      <span class="fix">Обязательное поле!</span>
+    </span>
+    <button class="button-fix fix" type="submit" [disabled]="f.invalid">
+      Изменить
+    </button>
+  </form>
+</div>

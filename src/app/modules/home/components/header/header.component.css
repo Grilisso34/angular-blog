@@ -1,0 +1,39 @@
+.open .dropdown-menu.profile-dropdown-menu {
+  display: block;
+}
+
+.header-container {
+  margin-bottom: 30px;
+  height: 60px;
+}
+
+div {
+  background: #343a40;
+  color: aliceblue;
+}
+
+li {
+  list-style-type: none;
+  display: inline;
+  padding: 4px;
+}
+
+.user-position {
+  margin-left: 80%;
+  margin-bottom: 50px;
+}
+
+.list-position {
+  width: 950px;
+  padding: 5px;
+  float: left;
+  padding-top: 10px;
+}
+
+.links-position {
+  padding-left: 10%;
+}
+
+.font {
+  font-size: 20px;
+}

@@ -1,0 +1,11 @@
+<section class="section text-center" *ngIf="!isLoaded">
+  Загрузка данных...
+</section>
+<section *ngIf="isLoaded">
+  <div>
+    <app-edit-article
+      (onArticleAdd)="newArtilceAdded($event)"
+      [articles]="articles"
+    ></app-edit-article>
+  </div>
+</section>

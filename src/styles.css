@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+/* html,
+body,
+head,
+header,
+main,
+form,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+ul,
+li,
+input,
+textarea {
+  background: #343a40;
+  color: aliceblue;
+} */
+
+body,
+head,
+header,
+footer,
+main,
+form,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+ul,
+li,
+input,
+textarea,
+select,
+option {
+  background: #343a40;
+  color: aliceblue;
+}
+
+input {
+  color: white;
+}
+
+button {
+  color: white;
+  background: gray;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* .alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-top: 10px;
+  margin-left: 20px;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  width: 280px;
+  align-content: center;
+} */
+
+body {
+  background-image: url(https://blog.grandworlds.ru/static/img/background-dark.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.full_image {
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  max-width: 100%;
+}

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="search search-fix search-input">
+    <input
+      type="text"
+      [placeholder]="searchPlaceholder"
+      [(ngModel)]="searchValue"
+    />
+  </div>
+  <div class="btn-group search" appDropdown>
+    <button type="button" class="btn btn-secondary dropdown-toggle">
+      Параметр поиска
+    </button>
+    <span class="dropdown-menu profile-dropdown-menu">
+      <a class="dropdown-item" (click)="searchParams('title')">Заголовок</a>
+      <a class="dropdown-item" (click)="searchParams('date')">Дата</a>
+      <a class="dropdown-item" (click)="searchParams('id')">Номер</a>
+    </span>
+  </div>
+
+  <div
+    class="a-fix"
+    *ngFor="let i of articlesLinks | search: searchValue:searchField"
+  >
+    <div class="article">
+      <a class="a-font" routerLink="/home/article/{{ i.id }}">
+        <img class="article-img" src="{{ i.url }}" />
+      </a>
+      <a class="a-font" routerLink="/home/article/{{ i.id }}">
+        <h2 class="title h-fix">{{ i.title }}</h2>
+        <span>{{ i.date }}</span>
+      </a>
+    </div>
+  </div>
+</div>

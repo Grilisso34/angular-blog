@@ -1,0 +1,9 @@
+<div *ngIf="article" class="container">
+  <div>
+    {{ article.date }}
+
+    <button class="delete" (click)="onDelete(article)">Удалить запись</button>
+  </div>
+  <h2>{{ article.title }}</h2>
+  <p class="font">{{ article.description }}</p>
+</div>
